@@ -1,0 +1,31 @@
+.form-control2{
+    margin-left: 13px;
+    width: 15%;
+    font-size: 15px;
+}
+
+.table{
+    margin-left: 20px;
+}
+
+.label {
+    margin-top: 105px; 
+}
+
+
+.nom{
+    width: 30%;
+}
+
+.tagtechnique{
+    width: 50%;
+}
+
+.typeaction{
+    width: 50%;
+}
+
+.row{
+    background-color: blue;
+    width: 9%;
+}

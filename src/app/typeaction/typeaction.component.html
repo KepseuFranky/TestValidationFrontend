@@ -1,0 +1,20 @@
+    <div class="container2 ">
+
+        <div class="row1" style="font-size: 20px;"><label class="label1">Type Action:</label></div>
+        <div class="row1" style="font-size: 20px;">
+          <input class="form-control1" type="text" [(ngModel)]= "typeAction.nomAction" name="NomTypeAction" placeholder = "Type Action">
+          <button (click) = "addTypeAction()"  class = "btn btn-info" style="width: 5%;"> Add </button>
+        </div>
+      <div class="scrolle">
+        <div *ngFor="let item of TypeActionList" class="row1">
+    
+          <div class="col-351"><label>{{item.nomAction}}</label></div>
+          <div class="col-81 col-chk1"><input type="checkbox" name="{{item.nomAction}}" [(ngModel)]="item.isselected" (change)= "NoTypeAction()"></div>
+          <div class="div1">
+            <button (click) = "updateAction(item.id)" class = "btn btn-info"> Update</button>
+            <button (click) = "deleteTypeAction(item.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete </button>
+          </div>
+        </div>
+        </div>
+
+      </div>

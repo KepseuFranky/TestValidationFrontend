@@ -1,0 +1,76 @@
+.container2{
+    position: relative;
+    margin-top: -12%;
+    margin-left: -18%;
+    width: 100%;
+}
+
+.scrolle{
+    position: relative;
+    overflow-y: scroll;
+    height: 150px;
+}
+
+.col-35{
+    float: left;
+    width: 35%;
+    margin-top: 3.5px;
+    }
+    
+    
+    .col-chk {
+        margin-left: -303px;
+    }
+    
+    .col-8{
+        float: left;
+        width: 2%;
+        margin-top: 3px;
+    }
+    
+    .form-control{
+        margin-left: 13px;
+        width: 15%;
+        font-size: 15px;
+    }
+    
+    .label {
+        margin-top: 105px; 
+    }
+    
+    
+    .col-351{
+        float: left;
+        width: 35%;
+        margin-top: 3px;
+        margin-left: 918px;
+        }
+        
+        
+        .col-chk1 {
+            margin-left: 18px;
+            width: 4%;
+        }
+        
+        .col-81{
+            float: left;
+            width: 4%;
+            margin-top: 3px;
+            margin-left: -303px;
+        }
+        
+        .form-control1{
+            margin-left: 918px;
+            width: 10%;
+            font-size: 15px;
+        }
+        
+        .label1 {
+            margin-left: 918px; 
+            margin-top: -16px;
+        }
+    
+        .div1{
+            margin-left: 923px;
+            width: 25%;
+        }

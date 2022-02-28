@@ -1,0 +1,13 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Type Action </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Nom Action</label>
+            <input type="text" class ="form-control" [(ngModel)] = "typeAction.nomAction" name="NomTypeAction">
+        </div>
+    
+        <button class = "btn btn-success" type ="submit">Update</button>
+    
+    </form>
+    </div> 

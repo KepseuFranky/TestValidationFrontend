@@ -1,0 +1,129 @@
+
+.scrolle{
+    position: relative;
+    overflow-y: scroll;
+    height: 100px;
+    width: 200px;
+}
+
+.col-35{
+    float: left;
+    width: 35%;
+    margin-top: 3.5px;
+    }
+    
+    
+    .col-chk {
+        margin-left: 3px;
+    }
+    
+    .col-8{
+        float: left;
+        width: 8%;
+        margin-top: 3px;
+    }
+    
+    .form-control{
+        margin-left: 13px;
+        width: 15%;
+        font-size: 15px;
+    }
+    
+    .label {
+        margin-top: 105px; 
+    }
+
+    .container{
+        position: relative;
+        margin-top: 0%;
+        margin-left: 100px;
+        width: 100%;
+    }
+    
+
+
+    <div class="container "> 
+
+    <div class="row" style="font-size: 20px;"><label class="label">Tag Technique:</label></div>
+    <div class="row" style="font-size: 20px;">
+      <input class="form-control" type="text" [(ngModel)]= "tagTechnique.nom" name="NomTagTechnique" placeholder = "Tag Technique">
+      <button (click) = "addTagTechnique()" class = "btn btn-info" style="width: 5%;"> Add </button>
+    </div>
+
+    <div class="scrolle">
+    <div *ngFor="let item of TagTechniqueList" class="row">
+
+      <div class="col-35"><label>{{item.nom}}</label></div>
+      <div class="col-8 col-chk"><input type="checkbox" name="{{item.nom}}" (change)= "onchange()" [(ngModel)]="item.isselected"></div>
+    </div>
+    </div>
+  </div>
+
+
+
+  import { Component,Input, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Router } from '@angular/router';
+import { TagTechnique } from '../tag-technique';
+import { TestserviceService } from '../testservice.service';
+import { Observable, BehaviorSubject} from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-tagtechnique',
+  templateUrl: './tagtechnique.component.html',
+  styleUrls: ['./tagtechnique.component.css']
+})
+export class TagtechniqueComponent implements OnInit {
+
+  [x: string]: any;
+
+  @Output() public SendData = new EventEmitter<TagTechnique[]>();
+
+  tagTechnique: TagTechnique = new TagTechnique();
+  TagTechniqueList!:TagTechnique[];
+  tagtechnique$ !: Observable<Array<{id: string, nom: string, isselected : boolean;} >>;
+  refreshTagTechniques$ = new BehaviorSubject<boolean>(true);
+
+  
+
+
+  constructor(private testserviceService: TestserviceService,private router: Router) { }
+
+  ngOnInit(): void {
+    this.tagtechnique$=this.refreshTagTechniques$.pipe(switchMap(_ => this.testserviceService.getTagTechniquesList())); 
+    this.getTagTechniques();
+    
+  }
+
+  getTagTechniques(){
+    this.tagtechnique$.subscribe(data => {
+      this.TagTechniqueList = data;
+      this.SendData.emit(this.TagTechniqueList);
+    });
+  }
+
+  saveTagTechnique(){
+    this.testserviceService.createTagTechnique(this.tagTechnique).subscribe( data =>{
+      console.log(data);
+    },
+    error => console.log(error));
+    this.refreshTagTechniques$.next(false);
+    this.getTagTechniques();
+  }
+
+  addTagTechnique(){
+      this.saveTagTechnique(); 
+      this.ngOnInit();
+  }
+
+  onchange()
+  {
+    console.log(this.TagTechniqueList);
+   }
+
+    goTo(){
+      this.router.navigate(['/testvalidation']);
+    }
+
+
+}

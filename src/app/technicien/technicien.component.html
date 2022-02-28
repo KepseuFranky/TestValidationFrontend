@@ -1,0 +1,31 @@
+
+<form (ngSubmit)="onsubmit()">
+<div class="container">
+    <div>
+    <label>Technicien :</label>
+    <input class="form-control2" type="text" [(ngModel)]= "technicien.nom" name="NomTechnicien" placeholder = "Nom">
+    </div>
+    <div class="row">
+        <input type="submit" value="valider">
+    </div>
+
+    <div> <input class="form-control" type="text" [(ngModel)]= "nom" name= "nom" (ngModelChange)= "SearchbyNom()"  placeholder = "Search by nom"> </div> <div> <input class="form-control" type="text" name= "nom" [(ngModel)]= "nomTagtechnique" (ngModelChange)= "SearchbyTagTechnique()"  placeholder = "Search by tags technique">      <div> <input class="form-control" type="text" name= "nomTypeaction" [(ngModel)]= "nomTypeaction" (ngModelChange)= "SearchbyTypeAction()"  placeholder = "Search by type action">      
+
+
+<table class="table">
+    
+        <thead>
+            <td class="nom">Nom</td>
+            <td class="tagtechnique">TagTechnique</td>
+            <td class="typeaction">TypeAction</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of technicienList">
+            <td>{{item.nom}}</td>
+            <td>{{item.tagtechnique}}</td>
+            <td>{{item.typeAction}}</td>
+            </tr>
+        </tbody>
+   
+
+</table>

@@ -1,0 +1,48 @@
+
+.scrolle{
+    position: relative;
+    overflow-y: scroll;
+    height: 100px;
+    width: 200px;
+}
+
+.col-35{
+    float: left;
+    width: 35%;
+    margin-top: 3.5px;
+    }
+    
+    
+.col-chk {
+        margin-left: 3px;
+    }
+    
+.col-8{
+        float: left;
+        width: 8%;
+        margin-top: 3px;
+    }
+    
+.form-control{
+        margin-left: 13px;
+        width: 15%;
+        font-size: 15px;
+    }
+    
+.label {
+        margin-top: 105px; 
+    }
+
+.bouton{
+        width: 5%;
+        
+    }
+
+.container{
+        z-index: 2;
+        position: relative;
+        margin-top: -3%;
+        margin-left: 100px;
+        width: 50%;
+    }
+    

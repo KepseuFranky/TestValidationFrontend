@@ -1,0 +1,17 @@
+    <div class="container "> 
+
+        <div class="row" style="font-size: 20px;"><label class="label">Tag Technique:</label></div>
+        <div class="row" style="font-size: 20px;">
+          <input class="form-control" type="text" [(ngModel)]= "tagTechnique.nom" name="NomTagTechnique" placeholder = "Tag Technique">
+          <button (click) = "addTagTechnique()" id="bouton" class = "btn btn-info" style="width: 10%;"> Add </button>
+        </div>
+
+        <div class="scrolle">
+        <div *ngFor="let item of TagTechniqueList" class="row">
+    
+          <div class="col-35"><label>{{item.nom}}</label></div>
+          <div class="col-8 col-chk"><input type="checkbox" name="{{item.nom}}" [(ngModel)]="item.isselected" (change)= "NoTagTechnique()"></div>
+        </div>
+        </div>
+      </div>
+
